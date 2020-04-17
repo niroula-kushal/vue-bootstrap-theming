@@ -80,7 +80,7 @@ The allows us to render different parts of the app with different theme.
 #### Js counterpart
 In the js, we check the current theme and apply correct class to the body element.
 
-We also add a `temp-transitional` class to the body element for one second. This is done to ensure that the transition from light to dark theme and vice versa does not feel abrupt.
+We also add a `temp-transitional` class to the ~~body~~ component element for one second. This is done to ensure that the transition from light to dark theme and vice versa does not feel abrupt.
 
 ```scss
 .temp-transitional {
@@ -90,3 +90,5 @@ We also add a `temp-transitional` class to the body element for one second. This
 }
 ```
 temp-transitional is defined as above.
+
+We also save the selected theme in localstorage, so that the user choice is persisted across request.
