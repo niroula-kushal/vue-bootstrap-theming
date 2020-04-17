@@ -1,9 +1,12 @@
 <template>
   <div :class="classesToApply">
-    <button class="btn btn-info" @click="toggleTheme" style="margin-top: 10px">
-      <span :class="toggleIconClass"></span>
+    <button class="btn btn-info" @click="toggleTheme" style="margin-top: 10px;">
+      <transition name="replace" mode="out-in">
+        <span class="far fa-sun fa-fw fa-2x" v-if="isLightTheme" key="sun"></span>
+        <span class="far fa-moon fa-fw fa-2x" v-else key="moon"></span>
+      </transition>
     </button>
-    <div id="nav" class="cst">
+    <div id="nav">
       <router-link to="/" class="btn btn-primary">Home</router-link> |
       <router-link to="/about" class="btn btn-warning">About</router-link>
     </div>
@@ -34,21 +37,8 @@ export default {
         {"temp-transitional" : this.transitionalPeriod}
       ];
     },
-    toggleIconClass : function() {
-      if(this.theme === themes.LIGHT) return [
-        "far",
-        "fa-moon",
-        "fa-2x",
-        "fa-fw"
-      ];
-      else {
-        return [
-          "far",
-          "fa-sun",
-          "fa-2x",
-          "fa-fw"
-        ]
-      }
+    isLightTheme : function() {
+      return this.theme === themes.LIGHT;
     }
   },
   methods: {
@@ -75,6 +65,7 @@ export default {
 
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import "style_variables";
 /* Enter and leave animations can use different */
 /* durations and timing functions.              */
 .slide-fade-enter-active {
@@ -112,6 +103,26 @@ export default {
 .temp-transitional {
   &, & *, & *:before, & *:after {
     transition: all .3s;
+  }
+}
+.replace {
+  &-enter {
+    transform: translateX(30%);
+    opacity: 0;
+  }
+  &-leave-to {
+    transform: translateX(-30%);
+    opacity: 0;
+  }
+  &-enter-active, &-leave-active {
+    transition: .3s;
+  }
+}
+.theme-dark {
+  .btn-info, .btn-info:focus, .btn-info {
+    background-color: #363738;
+    border: none;
+    box-shadow: $darkBoxShadow;
   }
 }
 </style>
