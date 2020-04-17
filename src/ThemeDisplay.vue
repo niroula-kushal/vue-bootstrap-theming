@@ -1,7 +1,7 @@
 <template>
   <div :class="classesToApply">
     <button class="btn btn-info" @click="toggleTheme" style="margin-top: 10px">
-        Day/Night
+      <span :class="toggleIconClass"></span>
     </button>
     <div id="nav" class="cst">
       <router-link to="/" class="btn btn-primary">Home</router-link> |
@@ -33,6 +33,22 @@ export default {
         this.theme,
         {"temp-transitional" : this.transitionalPeriod}
       ];
+    },
+    toggleIconClass : function() {
+      if(this.theme === themes.LIGHT) return [
+        "far",
+        "fa-moon",
+        "fa-2x",
+        "fa-fw"
+      ];
+      else {
+        return [
+          "far",
+          "fa-sun",
+          "fa-2x",
+          "fa-fw"
+        ]
+      }
     }
   },
   methods: {

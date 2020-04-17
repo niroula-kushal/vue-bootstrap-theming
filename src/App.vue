@@ -17,6 +17,7 @@
 
 <script>
 import "./styles.scss";
+import "../node_modules/@fortawesome/fontawesome-free/css/all.css";
 import ThemeDisplay from "./ThemeDisplay";
 export default {
   components: {
