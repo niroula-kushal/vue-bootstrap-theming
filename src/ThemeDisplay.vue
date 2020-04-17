@@ -17,7 +17,6 @@
 </template>
 
 <script>
-import "./styles.scss";
 const themes = {
   LIGHT : "theme-light",
   DARK : "theme-dark"
@@ -65,7 +64,7 @@ export default {
 
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-@import "style_variables";
+@import "./styles/_style_variables";
 /* Enter and leave animations can use different */
 /* durations and timing functions.              */
 .slide-fade-enter-active {
