@@ -1,13 +1,13 @@
 <template>
   <div id="app">
     <div class="row">
-      <div class="col" v-for="col in displays" :key="col">
+      <div class="col" v-for="{number, themeKey} in displays" :key="themeKey">
         <div class="card">
           <div class="card-header">
-            <h4 class="card-title">Display {{col}}</h4>
+            <h4 class="card-title">Display {{number}}</h4>
           </div>
           <div class="card-body">
-            <ThemeDisplay />
+            <ThemeDisplay :theme-key="themeKey" />
           </div>
         </div>
       </div>
@@ -25,7 +25,16 @@ export default {
   },
   data() {
     return {
-      displays: [1, 2]
+      displays: [
+        {
+          number: 1,
+          themeKey : "theme-first"
+        },
+        {
+          number: 2,
+          themeKey : "theme-second"
+        }
+      ]
     };
   }
 };
