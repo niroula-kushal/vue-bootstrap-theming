@@ -69,9 +69,13 @@ This sets the background color and text of the card component.
 
 Currently two themes are supported : light and dark.
 
-When the theme is light, a `theme-light` class is added to the body element.
+~~When the theme is light, a `theme-light` class is added to the body element.~~
 
-When dark theme is chosen, a `theme-dark` class is added to the body element.
+~~When dark theme is chosen, a `theme-dark` class is added to the body element.~~
+
+In order to allow for multiple themes for multiple component, now the classes `theme-light` and `theme-dark` are applied to the root element of the component.
+
+The allows us to render different parts of the app with different theme.
 
 #### Js counterpart
 In the js, we check the current theme and apply correct class to the body element.
