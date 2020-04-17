@@ -1,0 +1,25 @@
+$enable-shadows: true;
+$normalBoxShadow : 0px 4px 16px 0px rgba(0, 0, 0, 0.5); 
+.card {
+    box-shadow: $normalBoxShadow;
+}
+$btn-box-shadow: $normalBoxShadow;
+.theme-dark {
+    $primary:  rgba(0,0,0,);
+    $darkBoxShadow : 1px 8px 8px 0px lighten(black, 10%);
+    $card-color : #d8d5d5;
+    $card-bg: rgb(65, 65, 65);
+    $card-cap-color: #ebebeb;
+    $card-cap-bg: darken($card-bg, 5%);
+    $btn-box-shadow : $darkBoxShadow; 
+    @import "~bootstrap/scss/bootstrap";
+    background-color: $dark;
+    .card {
+        box-shadow: $darkBoxShadow;
+    }
+}
+.theme-light {
+    $primary: rgb(37, 142, 184);
+    @import "~bootstrap/scss/bootstrap";
+    background-color: darken(white, 10%);
+}
