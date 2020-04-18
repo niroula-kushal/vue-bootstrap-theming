@@ -13,6 +13,10 @@ npm run serve
 ## Demo
 https://rehmatfalcon.github.io/vue-bootstrap-theming/
 
+## Screenshot
+
+![dark_light](https://user-images.githubusercontent.com/28915667/79636634-f3971b80-8198-11ea-809b-ca14809cac66.png)
+
 ## Motivation
 
 1. To integrate bootstrap with vue and make theming possible.
