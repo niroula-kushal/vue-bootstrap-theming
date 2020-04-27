@@ -39,7 +39,9 @@ export default {
   created() {
     this.themeHandler = getThemeHandler(this.themeKey);
     let defaultTheme = themes.LIGHT;
-    if(window.matchMedia("(prefers-color-scheme:dark)").matches) {
+    const darkMedia = window.matchMedia("(prefers-color-scheme:dark)"); 
+    darkMedia.addEventListener('change', this.onUserColorSchemeChange);
+    if(darkMedia.matches) {
       defaultTheme = themes.DARK;
     }
     const savedTheme = this.themeHandler.getTheme(defaultTheme);
@@ -80,6 +82,18 @@ export default {
       setTimeout(function() {
         this.transitionalPeriod = false;
       }, 1000);
+    },
+    onUserColorSchemeChange : function(e) {
+      if(e.matches) {
+        if(this.isLightTheme) {
+          this.toggleTheme();
+        }
+      }
+      else {
+        if(!this.isLightTheme) {
+          this.toggleTheme();
+        }
+      }
     }
   }
 };
