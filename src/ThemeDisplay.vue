@@ -38,7 +38,11 @@ export default {
   },
   created() {
     this.themeHandler = getThemeHandler(this.themeKey);
-    const savedTheme = this.themeHandler.getTheme(themes.LIGHT);
+    let defaultTheme = themes.LIGHT;
+    if(window.matchMedia("(prefers-color-scheme:dark)").matches) {
+      defaultTheme = themes.DARK;
+    }
+    const savedTheme = this.themeHandler.getTheme(defaultTheme);
     this.theme = savedTheme;
   },
   data() {
