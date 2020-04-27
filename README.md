@@ -1,5 +1,7 @@
 ## Vue Theming Bootstrap
 
+[![Build Status](https://travis-ci.org/RehmatFalcon/vue-bootstrap-theming.svg?branch=master)](https://travis-ci.org/RehmatFalcon/vue-bootstrap-theming)
+
 ## Project setup
 ```
 npm install
